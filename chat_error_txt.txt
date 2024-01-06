@@ -1,0 +1,34 @@
+src/sl_async_transceiver.cpp:204:16: error: unknown type name 'nullptr_t'; did you mean 'std::nullptr_t'?
+        Result<nullptr_t> ans = SL_RESULT_OK;
+               ^~~~~~~~~
+               std::nullptr_t
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__nullptr:57:31: note: 
+      'std::nullptr_t' declared here
+    typedef decltype(nullptr) nullptr_t;
+                              ^
+1 error generated.
+make[1]: *** [/Users/rafe2.2/python_documents/vscode_projects/rplidar/rplidar_sdk/obj/Darwin/Release/sdk/src/sl_async_transceiver.o] Error 1
+make: *** [make_subs] Error 1
+ChatGPT
+It looks like there's an error related to the use of nullptr_t. The compiler is indicating that it doesn't recognize the type nullptr_t and suggests using std::nullptr_t instead.
+
+The code seems to be attempting to use nullptr_t without the std:: namespace. This might happen if the code is being compiled in a context where the std namespace isn't automatically available.
+
+To fix this issue, you can either prepend std:: before nullptr_t in your code or add using namespace std; at the beginning of the file where nullptr_t is being used. Here's an example of both approaches:
+
+Using std::nullptr_t directly:
+
+cpp
+Copy code
+Result<std::nullptr_t> ans = SL_RESULT_OK;
+Or adding using namespace std; at the beginning of the file:
+
+cpp
+Copy code
+#include <your_other_includes>
+
+using namespace std;
+
+// Your code where you use nullptr_t
+Result<nullptr_t> ans = SL_RESULT_OK;
+Remember that using using namespace std; brings the entire std namespace into scope, which might not be preferred in larger projects to avoid namespace collisions. So, the first approach of using std::nullptr_t directly might be more advisable in certain contexts.
