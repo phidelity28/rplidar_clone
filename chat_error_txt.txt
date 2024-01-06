@@ -31,4 +31,33 @@ using namespace std;
 
 // Your code where you use nullptr_t
 Result<nullptr_t> ans = SL_RESULT_OK;
-Remember that using using namespace std; brings the entire std namespace into scope, which might not be preferred in larger projects to avoid namespace collisions. So, the first approach of using std::nullptr_t directly might be more advisable in certain contexts.
+Remember that using using namespace std; brings the entire std namespace into scope, which might not be preferred in larger projects to avoid namespace collisions. So, the first approach of using
+ std::nullptr_t directly might be more advisable in certain contexts.
+
+
+# this finalized the cloning correctly
+miniconda3) rafes-MacBook-Pro:~ rafe2.2$ cd python_documents/vscode_projects/rplidar/rplidar_sdk/
+(miniconda3) rafes-MacBook-Pro:rplidar_sdk rafe2.2$ git remote add rplidar_clone https://github.com/phidelity28/rplidar_clone
+(miniconda3) rafes-MacBook-Pro:rplidar_sdk rafe2.2$ git push -u rplidar_clone main
+error: src refspec main does not match any.
+error: failed to push some refs to 'https://github.com/phidelity28/rplidar_clone'
+(miniconda3) rafes-MacBook-Pro:rplidar_sdk rafe2.2$ git remote add rplidar_clone https://github.com/phidelity28/rplidar_clone.git
+fatal: remote rplidar_clone already exists.
+(miniconda3) rafes-MacBook-Pro:rplidar_sdk rafe2.2$ git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/dev-sdk
+  remotes/origin/feature/release-2.0
+  remotes/origin/feature/support-T1
+  remotes/origin/master
+  remotes/origin/ultra-capsule-bug
+(miniconda3) rafes-MacBook-Pro:rplidar_sdk rafe2.2$ git push -u rplidar_clone master
+Counting objects: 665, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (308/308), done.
+Writing objects: 100% (665/665), 18.45 MiB | 7.70 MiB/s, done.
+Total 665 (delta 355), reused 655 (delta 350)
+remote: Resolving deltas: 100% (355/355), done.
+To https://github.com/phidelity28/rplidar_clone
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'rplidar_clone'.
