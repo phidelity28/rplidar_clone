@@ -10,3 +10,5 @@ sdk/obj
 **/ipch
 *.obj
 *.o
+*venv
+*env
