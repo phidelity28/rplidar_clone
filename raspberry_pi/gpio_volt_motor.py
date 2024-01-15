@@ -12,12 +12,9 @@ Basic orientation testing and explorations to the Raspberry Pi Gpio interface
 import gpiozero as gp
 from time import sleep
 output_5v = gp.DigitalOutputDevice(2)
-led = gp.LED(17)
+control_motor = gp.LED(17)
+input_frm_white_blue_wire = gp.DigtalInputDevice(15)
 
 while True:
-    led.on()
-    sleep(3)
-    print("ON for 3 s \n")
-    led.off()
-    sleep(3)
-    print("hi - led.off call for 3 seconds\n\n[]")
+    control_motor().on()
+    print(input_frm_white_blue_wire.value())
