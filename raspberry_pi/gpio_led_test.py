@@ -11,13 +11,19 @@ Basic orientation testing and explorations to the Raspberry Pi Gpio interface
 #from gpiozero import LED
 import gpiozero as gp
 from time import sleep
-output_5v = gp.DigitalOutputDevice(2)
+output_5v = gp.DigitalOutputDevice(2) #the arg is the pinnumber not the io
+output_control_pwm = gp.DigitalOutputDevice(13)
+
+# interesting that the led id arg is receiving the gpio pin rather than the physical pin
 led = gp.LED(17)
 
 while True:
     led.on()
     sleep(3)
+    output_control_pwm.on()
     print("ON for 3 s \n")
     led.off()
-    sleep(3)
+    sleep(1)
     print("hi - led.off call for 3 seconds\n\n[]")
+    sleep(3)
+    output_control_pwm.off()

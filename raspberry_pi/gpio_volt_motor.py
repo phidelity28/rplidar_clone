@@ -13,7 +13,7 @@ import gpiozero as gp
 from time import sleep
 output_5v = gp.DigitalOutputDevice(2)
 control_motor = gp.LED(17)
-input_frm_white_blue_wire = gp.DigtalInputDevice(15)
+input_frm_white_blue_wire = gp.DigitalInputDevice(15)
 
 while True:
     control_motor().on()

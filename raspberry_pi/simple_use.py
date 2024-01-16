@@ -1,4 +1,14 @@
 from adafruit_rplidar import RPLidar
+import os
+from math import floor
+from busio import UART
+
+# for use with serial port usb
+# PORT_NAME  = '/dev/ttyUSB0'
+
+# attempt with our uart
+uart = busio.UART(2,)
+
 lidar = RPLidar('/dev/ttyUSB0')
 
 info = lidar.get_info()
