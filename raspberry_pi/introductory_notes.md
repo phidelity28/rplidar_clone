@@ -8,6 +8,7 @@
 - Model : Raspberry Pi 4 Model B w GPIO extension board:  The testing with this device is to evaluate whether it can be a hardware/ software system for controlling and extracting the lidar data from a RPLidar A1M8.  This data will be use to build a 3D representation (point cloud)  of dimensinal lumber on a industrial conveyor system.
 - [RPLidar Python Documentation](https://rplidar.readthedocs.io/en/latest/)  
 - [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)
+- [Raspberry Pi GPIO Documentation]()
 
 
 
@@ -28,3 +29,12 @@
 - set up venv:  python3.11 -m venv rasp_venv -> ($ source rasp_venv/activate/bin)
 - some basic libraries were added - numpy, click, serial and gpiozero (this is the library that is necessary to interact with the GPIO electronics)
   
+
+
+## Uart and busio libraries for python control of microcontrolers
+- Scripts were sourced  to utilize python as the core language to communicate with the rpLidar.  
+- A key challenge is to use raspberry pi GPIO hardware as an interface for providing electrical power to the unit, sending and receiving control signals and  extracting the data stream
+- The current scripts are using the standard usb microcontroller but ours is not functioning so we are using the GPIO and we require adapting the source scripts to incorperate a different hardware scheme
+- [busio documentation](https://docs.circuitpython.org/en/latest/shared-bindings/busio/#busio.UART)
+- busio UART is a bidirectional serial protocol that uses an an agreed upon speed rather than a shared clock line
+- current tests include:  gpio 17 is 

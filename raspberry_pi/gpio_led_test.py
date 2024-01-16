@@ -19,11 +19,14 @@ led = gp.LED(17)
 
 while True:
     led.on()
+    print("led -gpio 17 ON for 3 s \n")
     sleep(3)
-    output_control_pwm.on()
-    print("ON for 3 s \n")
+    
+   
     led.off()
+    output_control_pwm.on()
+    print("generic digital out -gpio 13 ON for 4 s \n")
     sleep(1)
-    print("hi - led.off call for 3 seconds\n\n[]")
+    print(" - led.off call for 3 seconds\n\n[]")
     sleep(3)
     output_control_pwm.off()
