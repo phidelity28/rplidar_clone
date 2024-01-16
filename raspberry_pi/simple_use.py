@@ -6,8 +6,8 @@ from busio import UART
 # for use with serial port usb
 # PORT_NAME  = '/dev/ttyUSB0'
 
-# attempt with our uart
-uart = busio.UART(2,)
+# attempt with our uart  this through an error as I was attempting to configure the tx rx ports 
+#uart = busio.UART(2,)
 
 lidar = RPLidar('/dev/ttyUSB0')
 
