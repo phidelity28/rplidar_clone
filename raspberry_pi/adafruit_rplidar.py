@@ -38,6 +38,7 @@ try:
     from busio import UART
     from digitalio import DigitalInOut
 except ImportError:
+    print(f"import error line 41 addafruitn_rplidar.py")
     pass
 
 # pylint:disable=invalid-name,undefined-variable,global-variable-not-assigned
@@ -265,7 +266,8 @@ class RPLidar:
         descriptor = self._serial_port.read(DESCRIPTOR_LEN)
         self.log_bytes("debug", "Received descriptor:", descriptor)
         if len(descriptor) != DESCRIPTOR_LEN:
-            raise RPLidarException("Descriptor length mismatch")
+            print(f"the length of the decripter data read :{len(descriptor)}\n vs the expected length: {DESCRIPTOR_LEN}\n")
+            raise RPLidarException(f"Incorrect descriptor length\n lenght of descriptor:{len(descriptor)}\n vs the expected length: {DESCRIPTOR_LEN}\n")
         if not descriptor.startswith(SYNC_BYTE + SYNC_BYTE2):
             raise RPLidarException("Incorrect descriptor starting bytes")
         is_single = descriptor[-2] == 0

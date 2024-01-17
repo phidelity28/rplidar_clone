@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# This is John Curry's adaptation
 
 import serial
 import sys

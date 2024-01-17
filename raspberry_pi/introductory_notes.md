@@ -32,9 +32,11 @@
 
 
 ## Uart and busio libraries for python control of microcontrolers
-- Scripts were sourced  to utilize python as the core language to communicate with the rpLidar.  
+- Scripts were sourced  to utilize python as the core language to communicate with the rpLidar. 
+- pip3 install adafruit-blinka  to  ensu re the busio lirbr
 - A key challenge is to use raspberry pi GPIO hardware as an interface for providing electrical power to the unit, sending and receiving control signals and  extracting the data stream
 - The current scripts are using the standard usb microcontroller but ours is not functioning so we are using the GPIO and we require adapting the source scripts to incorperate a different hardware scheme
+- UART universal asynchronous receiver transmitter
 - [busio documentation](https://docs.circuitpython.org/en/latest/shared-bindings/busio/#busio.UART)
 - busio UART is a bidirectional serial protocol that uses an an agreed upon speed rather than a shared clock line
-- current tests include:  gpio 17 is 
+- first test returns  'RuntimeError: busio.UART not supported on this platform. Please use pyserial instead.' 
