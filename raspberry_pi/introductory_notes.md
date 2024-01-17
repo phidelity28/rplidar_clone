@@ -40,3 +40,4 @@
 - [busio documentation](https://docs.circuitpython.org/en/latest/shared-bindings/busio/#busio.UART)
 - busio UART is a bidirectional serial protocol that uses an an agreed upon speed rather than a shared clock line
 - first test returns  'RuntimeError: busio.UART not supported on this platform. Please use pyserial instead.' 
+- to address the above error I imported the library - serial and change the bus arg to /dev/ttyS0 from the default as some resources point out that is the default port on the raspberry pi 
