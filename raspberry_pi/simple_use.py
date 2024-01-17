@@ -19,7 +19,7 @@ gp_receive = gp.DigitalInputDevice(15) # default /Bcm rx pin
 output_5v.on()
 motor_control_pwm.on()
 
-motor_pin = 13
+motor_pin = 13 #gpio labelling
 baud_rate = 115200
 port_serial = '/dev/ttyS0'
 ser = serial.Serial(port=port_serial, baudrate=baud_rate, timeout=3)
@@ -32,7 +32,7 @@ lidar = RPLidar(motor_pin=motor_pin, port=port_serial, timeout=3)
 #lidar = RPLidar('/dev/ttyUSB0')
 #lidar = RPLidar(None, PORT_NAME, timeout=3 )
 n=0
-while n<4:
+while n<15:
     sleep(4)
     motor_control_pwm.off()
     print("off for 2 seconds \n")
