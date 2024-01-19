@@ -48,4 +48,6 @@
 - ls /sys/class/tty  - returns a list fo terminal devices, specifically tty's 
 - lsusb  - list all devices connected to the computer
 - udevadm info --query=all --name=/dev/ttyUSB0 -  will provide detailed info on devices connected to USB0 port
-- 
+
+
+## 
