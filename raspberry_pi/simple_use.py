@@ -1,4 +1,4 @@
-from adafruit_rplidar import RPLidar
+from ada_rplidar_serial import RPLidar
 import os
 from math import floor
 import gpiozero as gp
@@ -23,7 +23,8 @@ motor_pin = 13 #gpio labelling
 baud_rate = 115200
 port_serial = '/dev/ttyS0'
 ser = serial.Serial(port=port_serial, baudrate=baud_rate, timeout=3)
-# uart = bu.UART(rx = gp_transmit, tx = gp_receive, baudrate = baud_rate)
+
+uart = bu.UART(rx = gp_transmit, tx = gp_receive, baudrate = baud_rate)
 
 lidar = RPLidar('13', port=ser, timeout=3)
 
