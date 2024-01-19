@@ -3,6 +3,7 @@ import os
 from math import floor
 import gpiozero as gp
 
+from digitalio import DigitalInOut
 import serial
 
 # for use with serial port usb
