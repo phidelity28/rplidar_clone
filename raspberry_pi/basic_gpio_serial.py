@@ -24,22 +24,34 @@ motor_control_pwm = gp.DigitalOutputDevice(motor_pin)
 gp_transmit = gp.DigitalOutputDevice(tx_pin) #  gpio / BCM numbering defualt tx pin
 gp_receive = gp.DigitalInputDevice(rx_pin) # default /Bcm rx pin
 
+#esp_control_v = DigitalInOut
 output_5v.on()
 motor_control_pwm.on()
 
 baud_rate = 115200
-port_serial = '/dev/ttyS0'
-ser = serial.Serial(port=port_serial, baudrate=baud_rate, timeout=3)
+port_serial = '/dev/ttyUSB0'
+ser = serial.Serial(port=port_serial, baudrate=9600, timeout=4)
 sleep(5)
-lidar = RPLidar(motor_pin=motor_pin, port=port_serial, timeout=3)
+esp_1 = RPLidar(motor_pin=motor_pin, port=port_serial, timeout=3)
+# the line bellow is a teminal use case only
+#  infor = serial.tools.list_ports.ListPortInfo(ser)
 
 try: 
     while True:
         #read gpio input
+        ser.write(b"hello usb")
+        bytes = 7
+        # read_input_esp = ser.read(bytes)
+        # print(f"the type of data in the serial read is : {type(read_input_esp)}\n")
+        # print(f"this is the input form the serial port : {read_input_esp}")
+        # print(f"serial input buffer w in _waiting func :{ser.in_waiting}\n")
+        
+        # print(f"serial ouput buffer w in _waiting func :{ser.out_waiting}\n")
         gp_in_data = gp_receive.value
         print(f"this is the type of gp input data object {type(gp_in_data)}\n")
         print(f"this is the data {gp_in_data}\n")
-        ser.write(str(gp_in_data).encode())
+        # ser.write(str(gp_in_data).encode())
+        # print(f"attempting data ser.readline {ser.readline()}")
         
 
         # test the tx data
@@ -55,12 +67,13 @@ except KeyboardInterrupt:
 
 lidar = RPLidar(motor_pin=motor_pin, port=port_serial, timeout=3)
 
-
 # bleow are some basic method calls as tests 
 
 # clears input buffer by reading all available data
-clear_buffer = lidar.clear_input()
-print(f"data in the input buffer:\n{clear_buffer}\n")
+#clear_buffer = lidar.clear_input()
+#print(f"\n data in the input buffer:\n{clear_buffer}\n")
+
+ser.close()
 
 info = lidar.info
 print(info)
