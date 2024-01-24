@@ -88,7 +88,7 @@ def default_read(ser):
 @click.command()
 @click.option('--debug', is_flag=True, default=False, help='debug')
 def main(debug):
-    with serial.Serial('/dev/ttyS0', 115200, timeout=1) as ser:
+    with serial.Serial('/dev/ttyUSB0', 115200, timeout=1) as ser:
         if (debug):
                 debug_read(ser)
 

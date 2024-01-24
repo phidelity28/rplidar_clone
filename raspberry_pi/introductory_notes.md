@@ -41,3 +41,13 @@
 - busio UART is a bidirectional serial protocol that uses an an agreed upon speed rather than a shared clock line
 - first test returns  'RuntimeError: busio.UART not supported on this platform. Please use pyserial instead.' 
 - to address the above error I imported the library - serial and change the bus arg to /dev/ttyS0 from the default as some resources point out that is the default port on the raspberry pi 
+
+
+
+## key linux usb commands
+- ls /sys/class/tty  - returns a list fo terminal devices, specifically tty's 
+- lsusb  - list all devices connected to the computer
+- udevadm info --query=all --name=/dev/ttyUSB0 -  will provide detailed info on devices connected to USB0 port
+
+
+## 
